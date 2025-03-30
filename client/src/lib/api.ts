@@ -37,34 +37,30 @@ export async function uploadImagesToImgBB(files: File[]): Promise<string[]> {
 
 // Function to send a contact form submission with image links to the site admin via EmailJS
 export async function sendEmailWithLinks(email: string, imageUrls: string[]): Promise<void> {
-  // Create template parameters - these are sent to the site admin, not to the user
-  const templateParams = {
-    // This is the customer's email address that will appear in your inbox
-    from_email: email,
-    reply_to: email,
-    
-    // Information for the email that YOU receive
-    subject: "New Ghibli Transform Request",
-    customer_email: email,
-    message: `A new user has requested Ghibli-style image transformations. Their email is: ${email}`,
-    
-    // The image links that were uploaded
-    image_link_1: imageUrls[0] || "",
-    image_link_2: imageUrls[1] || "",
-    image_link_3: imageUrls[2] || ""
-  };
-  
   try {
-    // This sends an email to YOU (the site admin), not to the customer
+    // Using EmailJS official documentation pattern
+    const templateParams = {
+      to_name: "Admin", // Default to "Admin" for the receiver name
+      from_name: "Website Form", // "From" name in the email
+      reply_to: email, // For easy reply to the customer
+      user_email: email, // User's email as specified in instructions
+      message: `User requested Ghibli transformation for ${imageUrls.length} image(s).`,
+      image_link_1: imageUrls[0] || "",
+      image_link_2: imageUrls[1] || "",
+      image_link_3: imageUrls[2] || ""
+    };
+    
+    // Using the official pattern from EmailJS docs with all 4 parameters
     const response = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      templateParams
+      templateParams,
+      EMAILJS_PUBLIC_KEY // Include the public key as the 4th parameter
     );
     
-    console.log("Email notification sent successfully to admin:", response);
+    console.log("Email sent successfully:", response);
   } catch (error) {
-    console.error("Error sending email notification:", error);
+    console.error("Error sending email:", error);
     throw error;
   }
 }
