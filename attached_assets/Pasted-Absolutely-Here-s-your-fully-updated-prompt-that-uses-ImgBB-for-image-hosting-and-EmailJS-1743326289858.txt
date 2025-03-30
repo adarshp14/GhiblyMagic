@@ -1,0 +1,68 @@
+Absolutely! Here's your fully updated **prompt** that uses **ImgBB** for image hosting and **EmailJS** for sending download links — beautifully wrapped in Ghibli-style design language:
+
+---
+
+Design a **magical, Studio Ghibli-inspired homepage** as a **fully frontend-only website** that allows users to upload up to **3 personal images** and enter their **email address** to request a **Ghibli-style transformation**. The entire page should feel like it belongs in a Ghibli film — featuring soft gradients, nature-inspired color palettes (sky blues, forest greens, sunset golds), rounded edges, fantasy-style typography, and gentle animations like drifting clouds or floating sparkles. Use **Tailwind CSS** for layout and styling, and **Google Fonts** such as *Marck Script*, *Merriweather*, or *Dancing Script* for a warm, storybook vibe.
+
+---
+
+### 💫 Content and Layout:
+
+- The main title should read:  
+  **“Transform Into Ghibli Magic”**  
+  Styled in a soft, fantasy font.
+
+- Under the header, add this poetic tagline:  
+  *“Send us your photos, and we’ll paint your story in Ghibli light.”*
+
+- The form should include:
+  - An image upload input that accepts up to **3 JPG/PNG images**
+  - An **email input** field
+  - A whimsical CTA button labeled:  
+    **“Send to the Ghibli Spirits”**
+
+---
+
+### ☁️ Image Hosting via ImgBB:
+
+- Upload each image to **[ImgBB](https://api.imgbb.com/)** using their API.
+- Use this **API Key**: `4e5c1e7f6e82e9231f24cb11924550a6`
+- For each uploaded image, extract the `display_url` and store them for use in the email.
+
+---
+
+### ✉️ Email Sending via EmailJS:
+
+- Use **EmailJS** to send the uploaded image links and user email to your inbox.
+- Use the following credentials:
+  - **Service ID**: `service_s4psi1r`
+  - **Template ID**: `template_lhlm4bu`
+  - **Public Key**: `TqyzrqwQT23rqZp2f`
+- The email template should include:
+  - `user_email`
+  - `image_link_1`, `image_link_2`, `image_link_3` (with empty string fallback)
+
+---
+
+### ✅ Submission Behavior:
+
+- Validate that the user uploads **1 to 3 images** and provides a valid email.
+- Upload the images to ImgBB and get their hosted URLs.
+- Send the image URLs and email address to your predefined inbox via EmailJS.
+- Display a magical success message like:  
+  *“All set! The Ghibli spirits are working on your transformation.”*
+
+---
+
+### 📜 Footer and Disclaimer:
+
+- Show a subtle, center-aligned disclaimer beneath the form:  
+  *“We don’t store your images. Delivery will be done in a couple of hours.”*
+
+- Add a soft footer at the bottom of the page with the line:  
+  **© 2025 Made by AP**  
+  Use Ghibli-appropriate font and styling.
+
+---
+
+The entire user experience should feel enchanting, gentle, and imaginative — just like a walk through a Studio Ghibli forest. Let me know if you want me to now code this out using Tailwind, ImgBB, and EmailJS — I can give you a complete, working frontend.
