@@ -45,8 +45,9 @@ export function StatusOverlay({ type, isVisible, onClose }: StatusOverlayProps) 
                 <div className="text-[#8ED1AF] mb-4">
                   <i className="fas fa-check-circle text-5xl"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-[#5C5B57] mb-2">All set!</h3>
-                <p className="text-[#5C5B57]">The Ghibli spirits are working on your transformation.</p>
+                <h3 className="text-2xl font-bold text-[#5C5B57] mb-2">Request Sent!</h3>
+                <p className="text-[#5C5B57] mb-2">We've received your images and will begin the Ghibli transformation soon.</p>
+                <p className="text-[#5C5B57] text-sm">Your transformed images will be sent to the email address you provided within a couple of hours.</p>
                 <Button 
                   className="mt-6 bg-[#88C9F2] text-white px-6 py-2 rounded-full hover:bg-opacity-90"
                   onClick={onClose}

@@ -35,37 +35,36 @@ export async function uploadImagesToImgBB(files: File[]): Promise<string[]> {
   return Promise.all(uploadPromises);
 }
 
-// Function to send email with image links using EmailJS
+// Function to send a contact form submission with image links to the site admin via EmailJS
 export async function sendEmailWithLinks(email: string, imageUrls: string[]): Promise<void> {
-  // Configure parameters for the EmailJS template with all possible recipient names
+  // Create template parameters - these are sent to the site admin, not to the user
   const templateParams = {
-    // Add all possible recipient parameter names that EmailJS might use
-    user_email: email,
-    to_email: email,
-    recipient_email: email,
-    to: email,
-    email: email,
-    recipient: email,
-    to_name: "Ghibli Art Lover",
-    from_name: "Ghibli Magic Transform",
+    // This is the customer's email address that will appear in your inbox
+    from_email: email,
     reply_to: email,
-    message: "Here are your transformed images in Studio Ghibli style. Click on the links below to view and download them:",
+    
+    // Information for the email that YOU receive
+    subject: "New Ghibli Transform Request",
+    customer_email: email,
+    message: `A new user has requested Ghibli-style image transformations. Their email is: ${email}`,
+    
+    // The image links that were uploaded
     image_link_1: imageUrls[0] || "",
     image_link_2: imageUrls[1] || "",
     image_link_3: imageUrls[2] || ""
   };
   
   try {
+    // This sends an email to YOU (the site admin), not to the customer
     const response = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_PUBLIC_KEY
+      templateParams
     );
     
-    console.log("Email sent successfully:", response);
+    console.log("Email notification sent successfully to admin:", response);
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email notification:", error);
     throw error;
   }
 }
