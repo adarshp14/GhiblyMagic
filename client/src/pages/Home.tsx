@@ -196,8 +196,8 @@ export default function Home() {
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Image Upload Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold text-[#5C5B57]">Upload Your Images</h2>
-              <p className="text-[#5C5B57]">Choose up to 3 images to transform into Ghibli-style art</p>
+              <h2 className="text-2xl font-bold text-[#333333] drop-shadow-sm">Upload Your Images</h2>
+              <p className="text-[#333333] font-medium">Choose up to 3 images to transform into Ghibli-style art</p>
               
               {/* Image Upload Controls */}
               <div className="flex flex-wrap gap-4 justify-center">
@@ -205,12 +205,12 @@ export default function Home() {
               </div>
               
               {/* Preview Area */}
-              <div className="border-2 border-dashed border-[#88C9F2] hover:border-[#5A8F7B] transition-all rounded-2xl p-4 min-h-[200px] flex flex-wrap gap-4 justify-center items-center">
+              <div className="border-3 border-dashed border-[#88C9F2] hover:border-[#5A8F7B] transition-all rounded-2xl p-4 min-h-[200px] flex flex-wrap gap-4 justify-center items-center bg-white/70 backdrop-blur-sm">
                 {selectedFiles.length === 0 ? (
-                  <div className="text-[#5C5B57] text-center p-8 w-full">
-                    <i className="fas fa-images text-4xl mb-4 text-[#88C9F2] opacity-50"></i>
-                    <p>Your images will appear here</p>
-                    <p className="text-sm mt-2 text-[#5C5B57] opacity-60">(1-3 images, JPG or PNG only)</p>
+                  <div className="text-[#444444] text-center p-8 w-full">
+                    <i className="fas fa-images text-4xl mb-4 text-[#88C9F2] opacity-80"></i>
+                    <p className="font-medium">Your images will appear here</p>
+                    <p className="text-sm mt-2 font-medium text-[#444444] opacity-80">(1-3 images, JPG or PNG only)</p>
                   </div>
                 ) : (
                   selectedFiles.map((file, index) => (
@@ -225,21 +225,21 @@ export default function Home() {
               </div>
               
               {/* Image Counter */}
-              <div className="text-right text-sm text-[#5C5B57]">
+              <div className="text-right text-sm font-medium text-[#333333]">
                 <span>{selectedFiles.length}/3 images selected</span>
               </div>
             </div>
             
             {/* Email Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold text-[#5C5B57]">Where to Send Your Magic</h2>
+              <h2 className="text-2xl font-bold text-[#333333] drop-shadow-sm">Where to Send Your Magic</h2>
               
               <div className="relative">
                 <Input 
                   type="email" 
                   id="userEmail" 
                   placeholder="Enter your email address" 
-                  className="w-full px-4 py-3 rounded-full border-2 border-[#F9F7F4] focus:border-[#88C9F2] focus:ring-[#88C9F2]/30 transition-all"
+                  className="w-full px-4 py-3 rounded-full border-2 border-[#F9F7F4] focus:border-[#88C9F2] focus:ring-[#88C9F2]/30 transition-all font-medium text-[#333333]"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -267,7 +267,7 @@ export default function Home() {
           </form>
           
           {/* Disclaimer */}
-          <div className="text-center mt-8 text-[#5C5B57] text-sm">
+          <div className="text-center mt-8 text-[#333333] text-sm font-medium p-2 rounded bg-white/70 backdrop-blur-sm">
             <p>We don't store your images. Delivery will be done in a couple of hours.</p>
           </div>
         </motion.div>
@@ -293,8 +293,8 @@ export default function Home() {
       />
 
       {/* Footer */}
-      <footer className="p-6 text-center text-[#5C5B57] z-10">
-        <p className="accent-text text-lg">© 2025 Made by AP</p>
+      <footer className="p-6 text-center z-10">
+        <p className="accent-text text-lg font-bold text-white drop-shadow-md">© 2025 Made by AP</p>
       </footer>
     </div>
   );
