@@ -128,16 +128,16 @@ export default function Home() {
         </motion.div>
         
         <motion.h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#5C5B57] text-center mb-3"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg text-center mb-3"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Transform Into <span className="text-[#88C9F2]">Ghibli Magic</span>
+          Transform Into <span className="text-[#FFD700] font-bold">Ghibli Magic</span>
         </motion.h1>
         
         <motion.p 
-          className="accent-text text-xl md:text-2xl text-[#5A8F7B] text-center mb-8"
+          className="accent-text text-xl md:text-2xl text-white font-semibold drop-shadow-md text-center mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
