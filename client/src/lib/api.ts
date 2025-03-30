@@ -36,7 +36,11 @@ export async function sendEmailWithLinks(email: string, imageUrls: string[]): Pr
   // Dynamically import emailjs-com
   const emailjs = await import("@emailjs/browser");
   
+  // Initialize EmailJS with the public key
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+  
   const templateParams = {
+    to_email: email,
     user_email: email,
     image_link_1: imageUrls[0] || "",
     image_link_2: imageUrls[1] || "",
@@ -47,8 +51,7 @@ export async function sendEmailWithLinks(email: string, imageUrls: string[]): Pr
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_PUBLIC_KEY
+      templateParams
     );
   } catch (error) {
     console.error("Error sending email:", error);
