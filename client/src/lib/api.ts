@@ -37,11 +37,18 @@ export async function uploadImagesToImgBB(files: File[]): Promise<string[]> {
 
 // Function to send email with image links using EmailJS
 export async function sendEmailWithLinks(email: string, imageUrls: string[]): Promise<void> {
-  // Configure parameters for the EmailJS template using correct parameter name
+  // Configure parameters for the EmailJS template with all possible recipient names
   const templateParams = {
-    // The primary parameter expected by the template is 'user_email'
+    // Add all possible recipient parameter names that EmailJS might use
     user_email: email,
+    to_email: email,
+    recipient_email: email,
+    to: email,
+    email: email,
+    recipient: email,
+    to_name: "Ghibli Art Lover",
     from_name: "Ghibli Magic Transform",
+    reply_to: email,
     message: "Here are your transformed images in Studio Ghibli style. Click on the links below to view and download them:",
     image_link_1: imageUrls[0] || "",
     image_link_2: imageUrls[1] || "",
